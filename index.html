@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Inventory Management System</h1>
+    <p>C++ Powered Inventory Management</p>
+</header>
+
+<nav>
+    <button id="menuButton">Main Menu</button>
+    <span id="currentStep">Step 1 of 7</span>
+</nav>
+
+<main>
+    <!-- MAIN MENU -->
+    <section id="menu" class="page hidden">
+        <h2>Main Menu</h2>
+        <p>Select an operation to continue.</p>
+        <div class="menu-list">
+            <button data-page="add">1. Add Product</button>
+            <button data-page="view">2. View Products</button>
+            <button data-page="search">3. Search Product</button>
+            <button data-page="update">4. Update Quantity</button>
+            <button data-page="order">5. Place Order</button>
+            <button data-page="track">6. Track Orders</button>
+            <button data-page="exit">7. Exit</button>
+        </div>
+    </section>
+
+    <!-- 1. ADD PRODUCT -->
+    <section id="add" class="page">
+        <h2>01. Add Product</h2>
+        <p class="description">Enter the details of the new product.</p>
+
+        <form id="addForm">
+            <label>Product Name</label>
+            <input type="text" id="productName" required>
+
+            <label>Price (Rs.)</label>
+            <input type="number" id="productPrice" min="1" required>
+
+            <label>Quantity</label>
+            <input type="number" id="productQuantity" min="0" required>
+
+            <button type="submit">Add Product</button>
+        </form>
+
+        <div id="addResult" class="result hidden"></div>
+        <div id="addConfirmation" class="confirmation hidden">
+            <h3>Product Added Successfully!</h3>
+            <button class="nextButton" data-next="view">Next: View Products</button>
+            <button class="backButton">Back to Menu</button>
+        </div>
+    </section>
+
+    <!-- 2. VIEW PRODUCTS -->
+    <section id="view" class="page hidden">
+        <h2>02. View Products</h2>
+        <p class="description">Here are all the products stored in the C++ system.</p>
+
+        <button id="viewButton">Load Products</button>
+        <div id="viewResult" class="result"></div>
+
+        <div id="viewConfirmation" class="confirmation hidden">
+            <h3>Product List Displayed!</h3>
+            <button class="nextButton" data-next="search">Next: Search Product</button>
+            <button class="backButton">Back to Menu</button>
+        </div>
+    </section>
+
+    <!-- 3. SEARCH PRODUCT -->
+    <section id="search" class="page hidden">
+        <h2>03. Search Product</h2>
+        <p class="description">Enter the Product ID to find its details.</p>
+
+        <form id="searchForm">
+            <label>Product ID</label>
+            <input type="number" id="searchId" min="1" required>
+            <button type="submit">Search Product</button>
+        </form>
+
+        <div id="searchResult" class="result hidden"></div>
+        <div id="searchConfirmation" class="confirmation hidden">
+            <h3>Search Completed!</h3>
+            <button class="nextButton" data-next="update">Next: Update Quantity</button>
+            <button class="backButton">Back to Menu</button>
+        </div>
+    </section>
+
+    <!-- 4. UPDATE QUANTITY -->
+    <section id="update" class="page hidden">
+        <h2>04. Update Quantity</h2>
+        <p class="description">Update the available stock of a product.</p>
+
+        <form id="updateForm">
+            <label>Product ID</label>
+            <input type="number" id="updateId" min="1" required>
+
+            <label>New Quantity</label>
+            <input type="number" id="newQuantity" min="0" required>
+
+            <button type="submit">Update Quantity</button>
+        </form>
+
+        <div id="updateResult" class="result hidden"></div>
+        <div id="updateConfirmation" class="confirmation hidden">
+            <h3>Quantity Updated Successfully!</h3>
+            <button class="nextButton" data-next="order">Next: Place Order</button>
+            <button class="backButton">Back to Menu</button>
+        </div>
+    </section>
+
+    <!-- 5. PLACE ORDER -->
+    <section id="order" class="page hidden">
+        <h2>05. Place Order</h2>
+        <p class="description">Enter the product and quantity you want to order.</p>
+
+        <form id="orderForm">
+            <label>Product ID</label>
+            <input type="number" id="orderId" min="1" required>
+
+            <label>Order Quantity</label>
+            <input type="number" id="orderQuantity" min="1" required>
+
+            <button type="submit">Place Order</button>
+        </form>
+
+        <div id="orderResult" class="result hidden"></div>
+        <div id="orderConfirmation" class="confirmation hidden">
+            <h3>Order Placed Successfully!</h3>
+            <button class="nextButton" data-next="track">Next: Track Orders</button>
+            <button class="backButton">Back to Menu</button>
+        </div>
+    </section>
+
+    <!-- 6. TRACK ORDERS -->
+    <section id="track" class="page hidden">
+        <h2>06. Track Orders</h2>
+        <p class="description">View all orders recorded by the C++ system.</p>
+
+        <button id="trackButton">Load Orders</button>
+        <div id="trackResult" class="result"></div>
+
+        <div id="trackConfirmation" class="confirmation hidden">
+            <h3>Order Tracking Completed!</h3>
+            <button class="nextButton" data-next="exit">Next: Exit</button>
+            <button class="backButton">Back to Menu</button>
+        </div>
+    </section>
+
+    <!-- 7. EXIT -->
+    <section id="exit" class="page hidden">
+        <h2>07. Exit</h2>
+        <p class="description">You have reached the end of the Inventory Management System.</p>
+
+        <div class="confirmation">
+            <h3>Thank you for using our system!</h3>
+            <p>You can close this website now.</p>
+            <button class="backButton">Back to Menu</button>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Inventory Management System | C++ Backend</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
